@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmfowjrk2lhmo"]
+
+[ext_resource type="PackedScene" uid="uid://defxyeri1ltfe" path="res://src/player/player.tscn" id="1_k32iq"]
+[ext_resource type="PackedScene" uid="uid://dj3ncnqd3thb6" path="res://src/characters/tutorial_guy/tutorial_guy.tscn" id="2_80t0a"]
+
+[node name="Overworld" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_k32iq")]
+position = Vector2(60, 76)
+motion_mode = 1
+
+[node name="TutorialGuy" parent="." instance=ExtResource("2_80t0a")]
+position = Vector2(16, 76)
