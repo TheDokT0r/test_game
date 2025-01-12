@@ -1,7 +1,54 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmfowjrk2lhmo"]
+[gd_scene load_steps=12 format=3 uid="uid://dmfowjrk2lhmo"]
 
 [ext_resource type="PackedScene" uid="uid://defxyeri1ltfe" path="res://src/player/player.tscn" id="1_k32iq"]
-[ext_resource type="PackedScene" uid="uid://dj3ncnqd3thb6" path="res://src/characters/tutorial_guy/tutorial_guy.tscn" id="2_80t0a"]
+[ext_resource type="PackedScene" uid="uid://b55k8jjnkkhcb" path="res://src/characters/default_npc/npc.tscn" id="2_fq1fu"]
+[ext_resource type="Script" path="res://src/characters/default_npc/npc_data.gd" id="3_schc1"]
+[ext_resource type="Texture2D" uid="uid://dlqol71g02jx6" path="res://src/characters/tutorial_guy/tutorial guy default.png" id="4_l4pmr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fb6jk"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32suc"]
+atlas = ExtResource("4_l4pmr")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11mkb"]
+atlas = ExtResource("4_l4pmr")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8h1m"]
+atlas = ExtResource("4_l4pmr")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asprp"]
+atlas = ExtResource("4_l4pmr")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qheyx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32suc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11mkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8h1m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asprp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_r12fv"]
+script = ExtResource("3_schc1")
+sprite = SubResource("SpriteFrames_qheyx")
+animation_speed_scale = 0.2
+collision_shape_2d = SubResource("RectangleShape2D_fb6jk")
 
 [node name="Overworld" type="Node2D"]
 
@@ -9,5 +56,6 @@
 position = Vector2(60, 76)
 motion_mode = 1
 
-[node name="TutorialGuy" parent="." instance=ExtResource("2_80t0a")]
-position = Vector2(16, 76)
+[node name="Npc" parent="." instance=ExtResource("2_fq1fu")]
+position = Vector2(21, 76)
+npc_data = SubResource("Resource_r12fv")

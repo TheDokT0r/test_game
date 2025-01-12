@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b55k8jjnkkhcb"]
+
+[ext_resource type="Script" path="res://src/characters/default_npc/npc.gd" id="1_bducn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbnq6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hlux0"]
+
+[node name="Npc" type="StaticBody2D"]
+script = ExtResource("1_bducn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gbnq6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hlux0")
